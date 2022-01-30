@@ -35,7 +35,6 @@ class App extends Component {
         const userDocRef = await createUserProfileDocument(userAuth);
 
         onSnapshot(userDocRef, (doc) => {
-          console.log("onSnapshot: ", doc.data())
           this.setState({
             currentUser: {
               ...doc.data()

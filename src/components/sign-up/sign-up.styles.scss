@@ -1,7 +1,8 @@
 .sign-up {
   display: flex;
   flex-direction: column;
-  width: 30vw;
+  min-width: 380px;
+  width: auto;
 
   .title{
     margin: 10px 0;

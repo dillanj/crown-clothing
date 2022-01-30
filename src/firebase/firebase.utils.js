@@ -35,18 +35,22 @@ export const signInWithGoogle = () => signInWithPopup(auth, provider);
 /* createUserProfileDocument creates our user account in our database */ 
 export const createUserProfileDocument = async (userAuth, additionalData) => {
   if(!userAuth) return;
+
   const userDocRef = doc(firestore, 'users', userAuth.uid);
+
   const userDoc = await getDoc( userDocRef );
+
   if (!userDoc.exists()){
     const { displayName, email, uid } = userAuth;
     const createdAt = new Date();
 
     try {
       await setDoc(userDocRef, {
-        displayName: displayName,
+        displayName,
         id: uid,
-        email: email,
-        createdAt: createdAt,
+        email,
+        createdAt,
+        ...additionalData
       })
     } catch(error){
       console.log("error creating user: ", error.message);
