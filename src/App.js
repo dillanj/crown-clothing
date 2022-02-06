@@ -12,6 +12,7 @@ import { onSnapshot } from 'firebase/firestore';
 import HomePage from './pages/homepage/homepage.component';
 import ShopPage from './pages/shop/shop.component';
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
+import CheckoutPage from './pages/checkout/checkout.component';
 
 // components
 import Header from './components/header/header.component';
@@ -54,6 +55,7 @@ class App extends Component {
         <Switch>
           <Route exact path='/' component = {HomePage}/>
           <Route path='/shop' component = {ShopPage}/>
+          <Route exact path='/checkout' component = {CheckoutPage}/>
           <Route  
             exact 
             path='/signIn' 
