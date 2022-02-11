@@ -15,7 +15,7 @@ export const selectCollectionsForPreview = createSelector(
 );
 
 export const selectCollection = memoize((collectionUrlParam) => 
-// returning the createSelecot funciton (currying) - returning a function within a function
+// returning the createSelector function (currying) - returning a function within a function
   createSelector(
     [selectCollections],
     collections => collections[collectionUrlParam]
