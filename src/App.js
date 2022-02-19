@@ -41,7 +41,8 @@ class App extends Component {
         });
       }
       setCurrentUser( userAuth );
-    })
+    }, err => console.log(err.message))
+    
   }
 
   componentWillUnmount(){
