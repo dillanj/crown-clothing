@@ -77,8 +77,6 @@ export const convertCollectionsSnapshotToMap = (collections) => {
 };
 
 
-
-
 export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
   const collectionRef = collection(firestore, collectionKey);
   const batch = writeBatch(firestore);
@@ -87,4 +85,13 @@ export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => 
     batch.set(newDocRef, object);
   })
   await batch.commit();
+};
+
+export const getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    const unsubscribe = auth.onAuthStateChanged(userAuth => {
+      unsubscribe();
+      resolve(userAuth);
+    }, reject);
+  });
 }
